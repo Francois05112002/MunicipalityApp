@@ -1,0 +1,56 @@
+﻿@page
+@model MunicipalityServices.Pages.RegisterModel
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "User Account";
+    var isSignedIn = HttpContext.Session.GetString("SignedIn") == "true";
+}
+
+<div class="index-content">
+    @if (!isSignedIn)
+    {
+        <h1 class="report-issues-heading">Register or Log-In</h1>
+        <div style="display: flex; gap: 40px; justify-content: center;">
+            <!-- Register Block -->
+            <form method="post" class="report-issues-form" style="background: #fff; box-shadow: 0 0 0 6px #417a4a;">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="report-issues-row">
+                    <label asp-for="UserName" class="report-label" style="color: #417a4a;"></label>
+                    <input asp-for="UserName" class="report-input" style="border: 2px solid #e6b13a;" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="report-issues-row">
+                    <label asp-for="UserPhone" class="report-label" style="color: #417a4a;"></label>
+                    <input asp-for="UserPhone" class="report-input" style="border: 2px solid #e6b13a;" />
+                    <span asp-validation-for="UserPhone" class="text-danger"></span>
+                </div>
+                <button type="submit" class="report-submit-btn" style="background: #417a4a; color: #fff; border: 3px solid #e6b13a;">Register</button>
+            </form>
+            <!-- Sign-In Block -->
+            <form method="post" asp-page-handler="SignIn" class="report-issues-form" style="background: #417a4a; box-shadow: 0 0 0 6px #e6b13a;">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="report-issues-row">
+                    <label for="SignInPhone" class="report-label" style="color: #fff;">Phone Number</label>
+                    <input id="SignInPhone" name="SignInPhone" class="report-input" style="border: 2px solid #fff;" />
+                </div>
+                <button type="submit" class="report-submit-btn" style="background: #e6b13a; color: #417a4a; border: 3px solid #fff;">Sign In</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <h1 class="report-issues-heading">User Account</h1>
+        <div class="report-issues-form" style="background: #fff; box-shadow: 0 0 0 6px #417a4a; max-width: 400px; margin: 0 auto;">
+            <p class="report-label" style="color: #417a4a;">Welcome, @Model.CurrentUserName!</p>
+            <p class="report-label" style="color: #417a4a;">Phone: @Model.CurrentUserPhone</p>
+            <p class="report-label" style="color: #417a4a;">Issues Reported: <b>@Model.IssueCount</b></p>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+

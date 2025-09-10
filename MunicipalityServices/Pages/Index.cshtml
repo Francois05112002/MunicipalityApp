@@ -1,0 +1,59 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@if (TempData["ReportSuccess"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["ReportSuccess"]
+        <button type="button" class="btn btn-primary" onclick="this.parentElement.style.display='none'">OK</button>
+    </div>
+}
+@if (TempData["RegisterSuccess"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["RegisterSuccess"]
+        <button type="button" class="btn btn-primary" onclick="this.parentElement.style.display='none'">OK</button>
+    </div>
+}
+@if (TempData["SignInSuccess"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SignInSuccess"]
+        <button type="button" class="btn btn-primary" onclick="this.parentElement.style.display='none'">OK</button>
+    </div>
+}
+
+<div class="index-content">
+    <h1 class="report-issues-heading">South African Municipality Services</h1>
+
+    <p class="index-description">
+        This site allows residents to report local issues, view upcoming events, and check the status of service requests.
+        No sign-up is required to report issues, but you can register with your phone number to earn points for community contributions.
+        Your privacy is protected and your information is secure.
+    </p>
+
+    <h2 class="center-green-heading"> All you need and right now !</h2>
+    <div class="card-row">
+
+        <a asp-page="/Report" class="custom-card-link">
+            <div class="custom-card">
+                Report<br />Issues
+            </div>
+        </a>
+
+        <a asp-page="/Events/Events" class="custom-card-link">
+            <div class="custom-card">
+                Local<br />Events
+            </div>
+        </a>
+
+        <a asp-page="/Status/Status" class="custom-card-link">
+            <div class="custom-card">
+                Service<br />Request<br />Status
+            </div>
+        </a>
+    </div>
+</div>
+

@@ -1,0 +1,46 @@
+﻿@page
+@model MunicipalityServices.Pages.ReportModel
+@{
+    ViewData["Title"] = "Report Issues";
+}
+<div class="index-content">
+    <h1 class="report-issues-heading">Report Issues</h1>
+
+    <div id="form-progress-container" style="width:100%; margin-bottom:20px;">
+        <div id="form-progress-bar" style="height:18px; width:0; background:#e6b13a; border-radius:8px; transition:width 0.3s;"></div>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="report-issues-form" id="issues-form">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="report-issues-row">
+            <label asp-for="Location" class="report-label"></label>
+            <input asp-for="Location" class="report-input" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+
+        <div class="report-issues-row">
+            <label asp-for="Category" class="report-label"></label>
+            <select asp-for="Category" asp-items="Model.Categories" class="report-input">
+                <option value="">-- Select category --</option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+
+        <div class="report-issues-row">
+            <label asp-for="Description" class="report-label"></label>
+            <textarea asp-for="Description" rows="3" class="report-input"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="report-issues-row">
+            <label asp-for="Image" class="report-label"></label>
+            <input asp-for="Image" type="file" class="report-input" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="report-submit-btn">Submit</button>
+    </form>
+</div>
+
+
+
