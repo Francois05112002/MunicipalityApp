@@ -27,3 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
     updateProgress();
 });
 
+function showComingSoon() {
+    document.getElementById('comingSoonModal').style.display = 'flex';
+}
+function closeComingSoon() {
+    document.getElementById('comingSoonModal').style.display = 'none';
+}
+

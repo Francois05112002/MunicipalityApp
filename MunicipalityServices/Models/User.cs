@@ -21,5 +21,8 @@ namespace MunicipalityServices.Models
         // Navigation
         //public UserPoints? Points { get; set; }
         public ICollection<Issue> Issues { get; set; } = new List<Issue>();
+
+        public int PulseCompletedCount { get; set; } = 0;
+
     }
 }

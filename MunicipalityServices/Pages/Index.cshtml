@@ -37,23 +37,28 @@
     <h2 class="center-green-heading"> All you need and right now !</h2>
     <div class="card-row">
 
-        <a asp-page="/Report" class="custom-card-link">
-            <div class="custom-card">
+        <a asp-page="/Report" class="custom-card-link" style="flex:1; max-width:340px; min-width:260px; margin:0 16px;">
+            <div style="background:#417a4a; color:#fff; border:6px solid #e6b13a; border-radius:24px; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 0; font-size:2.2rem; font-family:monospace; box-shadow:0 2px 8px #0001; width:100%; height:100%;">
                 Report<br />Issues
             </div>
         </a>
 
-        <a asp-page="/Events/Events" class="custom-card-link">
-            <div class="custom-card">
-                Local<br />Events
-            </div>
-        </a>
 
-        <a asp-page="/Status/Status" class="custom-card-link">
-            <div class="custom-card">
-                Service<br />Request<br />Status
-            </div>
-        </a>
+        <div onclick="showComingSoon()" style="cursor:pointer; flex:1; max-width:340px; min-width:260px; background:#417a4a; color:#fff; border:6px solid #e6b13a; border-radius:24px; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 0; font-size:2.2rem; font-family:monospace; margin:0 16px; box-shadow:0 2px 8px #0001;">
+            Local<br>Events
+        </div>
+
+        <div onclick="showComingSoon()" style="cursor:pointer; flex:1; max-width:340px; min-width:260px; background:#417a4a; color:#fff; border:6px solid #e6b13a; border-radius:24px; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 0; font-size:2.2rem; font-family:monospace; margin:0 16px; box-shadow:0 2px 8px #0001;">
+            Service<br>Request<br>Status
+        </div>
     </div>
 </div>
 
+<!-- Coming Soon Modal -->
+<div id="comingSoonModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); align-items:center; justify-content:center;">
+    <div style="background:#fffbe6; border-radius:16px; padding:40px 32px; box-shadow:0 8px 32px #0002; text-align:center; max-width:340px;">
+        <h2 style="color:#417a4a; margin-bottom:18px;">🚧 Coming Soon!</h2>
+        <p style="color:#555; font-size:1.1rem;">This feature is under development.<br>Stay tuned!</p>
+        <button onclick="closeComingSoon()" style="margin-top:24px; background:#e6b13a; color:#417a4a; border:none; border-radius:8px; padding:10px 28px; font-size:1rem; font-weight:600; cursor:pointer;">OK</button>
+    </div>
+</div>

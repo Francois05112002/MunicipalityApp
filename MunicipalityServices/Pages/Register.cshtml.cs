@@ -34,6 +34,8 @@ namespace MunicipalityServices.Pages
         public string? CurrentUserName { get; set; }
         public string? CurrentUserPhone { get; set; }
         public int IssueCount { get; set; }
+        public int PulseCompletedCount { get; set; } 
+
 
         public async Task OnGetAsync()
         {
